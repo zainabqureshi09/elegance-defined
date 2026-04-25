@@ -52,11 +52,12 @@ const Checkout = () => {
     const parsed = schema.safeParse(data);
     if (!parsed.success) { toast.error(parsed.error.issues[0].message); return; }
     setBusy(true);
-    const { data: order, error } = await supabase.from('orders').insert({
+    const orderPayload: any = {
       user_id: user?.id ?? null,
       total,
       ...parsed.data,
-    }).select('id').single();
+    };
+    const { data: order, error } = await supabase.from('orders').insert(orderPayload).select('id').single();
 
     if (error || !order) { toast.error('Could not place order'); setBusy(false); return; }
 
