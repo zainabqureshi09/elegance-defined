@@ -12,6 +12,8 @@ import pretImg from '@/assets/collection-pret.jpg';
 import bridalImg from '@/assets/collection-bridal.jpg';
 import festiveImg from '@/assets/collection-festive.jpg';
 import { ArrowRight, Star } from 'lucide-react';
+import { CountdownBanner } from '@/components/CountdownBanner';
+import { RecentlyViewed } from '@/components/RecentlyViewed';
 
 const collections = [
   { slug: 'lawn', name: 'Lawn', img: lawnImg, tagline: 'Whisper-light essentials' },
@@ -40,6 +42,7 @@ const Home = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
+      <CountdownBanner />
 
       {/* Hero */}
       <section className="relative bg-luxe overflow-hidden">
@@ -204,6 +207,8 @@ const Home = () => {
           </form>
         </div>
       </section>
+
+      <RecentlyViewed />
 
       <Footer />
     </div>

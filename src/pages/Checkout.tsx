@@ -29,8 +29,21 @@ const Checkout = () => {
   const { user } = useAuth();
   const nav = useNavigate();
   const [busy, setBusy] = useState(false);
+  const [couponInput, setCouponInput] = useState('');
+  const [coupon, setCoupon] = useState<{ code: string; discount: number } | null>(null);
   const shipping = subtotal > 25000 || subtotal === 0 ? 0 : 500;
-  const total = subtotal + shipping;
+  const discount = coupon?.discount ?? 0;
+  const total = Math.max(0, subtotal + shipping - discount);
+
+  const applyCoupon = async () => {
+    if (!couponInput.trim()) return;
+    const { data, error } = await supabase.rpc('validate_coupon', { p_code: couponInput.trim(), p_subtotal: subtotal });
+    if (error) { toast.error('Could not validate coupon'); return; }
+    const row = Array.isArray(data) ? data[0] : data;
+    if (!row?.valid) { toast.error(row?.message ?? 'Invalid coupon'); setCoupon(null); return; }
+    setCoupon({ code: row.code, discount: Number(row.discount) });
+    toast.success(`Coupon ${row.code} applied`);
+  };
 
   if (items.length === 0) {
     return (
@@ -55,6 +68,10 @@ const Checkout = () => {
     const orderPayload: any = {
       user_id: user?.id ?? null,
       total,
+      subtotal,
+      shipping_fee: shipping,
+      discount,
+      coupon_code: coupon?.code ?? null,
       ...parsed.data,
     };
     const { data: order, error } = await supabase.from('orders').insert(orderPayload).select('id').single();
@@ -146,6 +163,16 @@ const Checkout = () => {
             <div className="space-y-2 text-sm border-t border-border pt-4">
               <div className="flex justify-between"><span className="text-muted-foreground">Subtotal</span><span>{formatPrice(subtotal)}</span></div>
               <div className="flex justify-between"><span className="text-muted-foreground">Shipping</span><span>{shipping === 0 ? 'Free' : formatPrice(shipping)}</span></div>
+              {coupon && (
+                <div className="flex justify-between text-accent">
+                  <span>Coupon {coupon.code}</span>
+                  <span>− {formatPrice(coupon.discount)}</span>
+                </div>
+              )}
+              <div className="flex gap-2 pt-2">
+                <Input value={couponInput} onChange={e => setCouponInput(e.target.value.toUpperCase())} placeholder="Coupon code" className="rounded-none h-10 text-xs" />
+                <Button type="button" onClick={applyCoupon} variant="outline" className="rounded-none h-10 px-4 text-xs">Apply</Button>
+              </div>
               <div className="flex justify-between font-display text-xl pt-3 border-t border-border"><span>Total</span><span>{formatPrice(total)}</span></div>
             </div>
             <Button type="submit" disabled={busy} size="lg" className="w-full rounded-none h-12">{busy ? 'Placing order…' : 'Place order'}</Button>

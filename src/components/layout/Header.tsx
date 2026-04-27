@@ -1,9 +1,11 @@
 import { Link, NavLink } from 'react-router-dom';
-import { Heart, Search, ShoppingBag, User, Menu, X } from 'lucide-react';
+import { Heart, Search, ShoppingBag, User, Menu, X, LayoutDashboard } from 'lucide-react';
 import { useState } from 'react';
 import { useCart } from '@/contexts/CartContext';
 import { useAuth } from '@/contexts/AuthContext';
+import { useUserRole } from '@/hooks/useUserRole';
 import { Button } from '@/components/ui/button';
+import { SearchCommand } from '@/components/SearchCommand';
 
 const navItems = [
   { to: '/shop', label: 'Shop All' },
@@ -16,7 +18,9 @@ const navItems = [
 export const Header = () => {
   const { count, setIsOpen } = useCart();
   const { user } = useAuth();
+  const { isAdmin } = useUserRole();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   return (
     <>
@@ -56,9 +60,14 @@ export const Header = () => {
           </Link>
 
           <div className="flex items-center gap-1 md:gap-2 flex-1 justify-end">
-            <Button variant="ghost" size="icon" aria-label="Search" className="hidden md:inline-flex">
+            <Button variant="ghost" size="icon" aria-label="Search" onClick={() => setSearchOpen(true)}>
               <Search className="h-4 w-4" />
             </Button>
+            {isAdmin && (
+              <Link to="/admin" aria-label="Admin" className="hidden md:inline-flex">
+                <Button variant="ghost" size="icon"><LayoutDashboard className="h-4 w-4" /></Button>
+              </Link>
+            )}
             <Link to={user ? '/account' : '/auth'} aria-label="Account">
               <Button variant="ghost" size="icon">
                 <User className="h-4 w-4" />
@@ -109,6 +118,7 @@ export const Header = () => {
           </div>
         )}
       </header>
+      <SearchCommand open={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
   );
 };
