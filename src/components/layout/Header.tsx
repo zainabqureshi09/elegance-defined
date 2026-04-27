@@ -24,7 +24,7 @@ export const Header = () => {
 
   return (
     <>
-      <div className="bg-emerald-grad text-primary-foreground text-xs tracking-luxe uppercase py-2.5 text-center overflow-hidden">
+      <div className="bg-gold-grad text-white text-xs tracking-luxe uppercase py-2.5 text-center overflow-hidden">
         <div className="animate-fade-in">
           Complimentary shipping on orders over PKR 25,000 · Crafted in Karachi
         </div>
@@ -56,7 +56,7 @@ export const Header = () => {
           </nav>
 
           <Link to="/" className="font-display text-2xl md:text-3xl tracking-tight absolute left-1/2 -translate-x-1/2">
-            Noor <span className="text-accent">&</span> Co.
+            Zaineen <span className="text-accent">Clothing</span>
           </Link>
 
           <div className="flex items-center gap-1 md:gap-2 flex-1 justify-end">
@@ -92,7 +92,7 @@ export const Header = () => {
         {mobileOpen && (
           <div className="fixed inset-0 z-50 bg-background animate-fade-in md:hidden">
             <div className="flex justify-between items-center h-16 px-5 border-b border-border">
-              <span className="font-display text-2xl">Noor & Co.</span>
+              <span className="font-display text-2xl">Zaineen Clothing</span>
               <button onClick={() => setMobileOpen(false)} aria-label="Close">
                 <X className="h-5 w-5" />
               </button>

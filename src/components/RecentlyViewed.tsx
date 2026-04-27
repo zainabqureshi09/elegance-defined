@@ -9,8 +9,8 @@ export const RecentlyViewed = ({ excludeId }: { excludeId?: string }) => {
   useEffect(() => {
     const load = () => setItems(getRecent().filter(i => i.id !== excludeId));
     load();
-    window.addEventListener('noor-recent-updated', load);
-    return () => window.removeEventListener('noor-recent-updated', load);
+    window.addEventListener('zaineen-recent-updated', load);
+    return () => window.removeEventListener('zaineen-recent-updated', load);
   }, [excludeId]);
 
   if (items.length === 0) return null;

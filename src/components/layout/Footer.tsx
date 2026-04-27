@@ -5,7 +5,7 @@ export const Footer = () => (
   <footer className="bg-secondary/40 border-t border-border mt-24">
     <div className="container-luxe py-16 grid grid-cols-2 md:grid-cols-4 gap-10">
       <div className="col-span-2 md:col-span-1">
-        <h3 className="font-display text-2xl">Noor & Co.</h3>
+        <h3 className="font-display text-2xl">Zaineen Clothing</h3>
         <p className="text-sm text-muted-foreground mt-3 max-w-xs leading-relaxed">
           Heirloom craftsmanship. Modern silhouettes. Made for the women who define elegance on their own terms.
         </p>
@@ -34,7 +34,7 @@ export const Footer = () => (
     </div>
     <div className="border-t border-border">
       <div className="container-luxe py-5 flex flex-col md:flex-row gap-2 items-center justify-between text-xs text-muted-foreground">
-        <p>© {new Date().getFullYear()} Noor & Co. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Zaineen Clothing All rights reserved.</p>
         <p className="tracking-luxe uppercase">Made with care in Karachi</p>
       </div>
     </div>

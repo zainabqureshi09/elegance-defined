@@ -80,7 +80,7 @@ const Home = () => {
       </section>
 
       {/* Marquee */}
-      <div className="bg-emerald-grad text-primary-foreground py-4 overflow-hidden">
+      <div className="bg-gold-grad text-white py-4 overflow-hidden">
         <div className="flex gap-12 animate-marquee whitespace-nowrap">
           {Array.from({ length: 2 }).map((_, k) => (
             <div key={k} className="flex gap-12 shrink-0">
@@ -177,7 +177,7 @@ const Home = () => {
       {/* Instagram-style gallery */}
       <section className="container-luxe py-20 md:py-28">
         <div className="text-center mb-10 space-y-3">
-          <p className="eyebrow">@noorandco</p>
+          <p className="eyebrow">@zaineenclothing</p>
           <h2 className="font-display text-4xl md:text-5xl">Worn in the world</h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3">

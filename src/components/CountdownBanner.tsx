@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // Ends 7 days from first visit (sticky per user)
-const KEY = 'noor-sale-end-v1';
+const KEY = 'zaineen-sale-end-v1';
 
 const getEnd = () => {
   const stored = localStorage.getItem(KEY);

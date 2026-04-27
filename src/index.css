@@ -2,86 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Noor & Co. — Luxury minimal design system. All colors HSL. */
+/* Zaineen Clothing — Luxury minimal design system. All colors HSL. */
 
 @layer base {
   :root {
-    /* Core palette: off-white, sand, deep emerald, warm gold */
-    --background: 38 33% 97%;          /* off-white #F8F5EF */
-    --foreground: 160 20% 12%;         /* deep ink */
+    /* Core palette: White, Beige, Black, and Warm Gold */
+    --background: 0 0% 100%;           /* White */
+    --foreground: 0 0% 0%;             /* Black */
 
-    --card: 38 30% 99%;
-    --card-foreground: 160 20% 12%;
+    --card: 30 20% 98%;                /* Very light beige */
+    --card-foreground: 0 0% 0%;
 
-    --popover: 38 30% 99%;
-    --popover-foreground: 160 20% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 160 38% 18%;            /* deep emerald */
-    --primary-foreground: 38 33% 97%;
-    --primary-glow: 160 30% 30%;
+    --primary: 0 0% 0%;                /* Black */
+    --primary-foreground: 0 0% 100%;   /* White */
+    --primary-glow: 0 0% 20%;
 
-    --secondary: 35 25% 88%;           /* warm sand */
-    --secondary-foreground: 160 20% 12%;
+    --secondary: 30 15% 90%;           /* Beige */
+    --secondary-foreground: 0 0% 0%;
 
-    --muted: 35 22% 92%;               /* light sand */
-    --muted-foreground: 160 10% 38%;
+    --muted: 30 10% 94%;               /* Light Beige */
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 38 45% 60%;              /* warm gold */
-    --accent-foreground: 160 38% 12%;
+    --accent: 45 35% 55%;              /* Warm Gold */
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 8 60% 45%;
-    --destructive-foreground: 38 33% 97%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 35 18% 86%;
-    --input: 35 18% 86%;
-    --ring: 160 38% 25%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 0%;
 
     --radius: 0.25rem;
 
     /* Brand tokens */
-    --gold: 38 45% 55%;
-    --gold-foreground: 160 38% 12%;
-    --sand: 35 25% 88%;
-    --ink: 160 20% 12%;
+    --gold: 45 35% 50%;
+    --gold-foreground: 0 0% 100%;
+    --sand: 30 15% 90%;
+    --ink: 0 0% 0%;
 
-    --gradient-luxe: linear-gradient(135deg, hsl(35 30% 94%) 0%, hsl(38 33% 97%) 50%, hsl(35 25% 90%) 100%);
-    --gradient-emerald: linear-gradient(135deg, hsl(160 38% 18%), hsl(160 30% 28%));
-    --gradient-gold: linear-gradient(135deg, hsl(38 50% 65%), hsl(38 45% 50%));
+    --gradient-luxe: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(30 20% 98%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(45 40% 65%), hsl(45 35% 45%));
 
-    --shadow-soft: 0 1px 2px hsl(160 20% 12% / 0.04), 0 8px 24px hsl(160 20% 12% / 0.06);
-    --shadow-luxe: 0 20px 60px -20px hsl(160 38% 18% / 0.25);
-    --shadow-product: 0 4px 12px hsl(160 20% 12% / 0.06);
+    --shadow-soft: 0 1px 2px hsl(0 0% 0% / 0.04), 0 8px 24px hsl(0 0% 0% / 0.06);
+    --shadow-luxe: 0 20px 60px -20px hsl(0 0% 0% / 0.15);
+    --shadow-product: 0 4px 12px hsl(0 0% 0% / 0.06);
 
     --transition-luxe: cubic-bezier(0.22, 1, 0.36, 1);
 
-    --sidebar-background: 38 33% 97%;
-    --sidebar-foreground: 160 20% 12%;
-    --sidebar-primary: 160 38% 18%;
-    --sidebar-primary-foreground: 38 33% 97%;
-    --sidebar-accent: 35 22% 92%;
-    --sidebar-accent-foreground: 160 20% 12%;
-    --sidebar-border: 35 18% 86%;
-    --sidebar-ring: 160 38% 25%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 0 0% 0%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 30 10% 94%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 0 0% 0%;
   }
 
   .dark {
-    --background: 160 20% 8%;
-    --foreground: 38 33% 95%;
-    --card: 160 20% 10%;
-    --card-foreground: 38 33% 95%;
-    --popover: 160 20% 10%;
-    --popover-foreground: 38 33% 95%;
-    --primary: 38 45% 65%;
-    --primary-foreground: 160 20% 8%;
-    --secondary: 160 15% 18%;
-    --secondary-foreground: 38 33% 95%;
-    --muted: 160 15% 16%;
-    --muted-foreground: 38 15% 70%;
-    --accent: 38 45% 60%;
-    --accent-foreground: 160 20% 8%;
-    --border: 160 15% 20%;
-    --input: 160 15% 20%;
-    --ring: 38 45% 60%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 45 35% 65%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 45 35% 60%;
+    --accent-foreground: 0 0% 0%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 45 35% 60%;
   }
 }
 
@@ -104,7 +103,7 @@
 @layer utilities {
   .text-balance { text-wrap: balance; }
   .bg-luxe { background: var(--gradient-luxe); }
-  .bg-emerald-grad { background: var(--gradient-emerald); }
+  .bg-gold-grad { background: var(--gradient-gold); }
   .shadow-luxe { box-shadow: var(--shadow-luxe); }
   .shadow-soft { box-shadow: var(--shadow-soft); }
   .shadow-product { box-shadow: var(--shadow-product); }

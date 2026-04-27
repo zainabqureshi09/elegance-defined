@@ -30,7 +30,7 @@ export const AdminLayout = () => {
     <div className="min-h-screen bg-secondary/20 grid md:grid-cols-[240px_1fr]">
       <aside className="hidden md:flex flex-col bg-background border-r border-border">
         <div className="p-6 border-b border-border">
-          <p className="font-display text-2xl">Noor & Co.</p>
+          <p className="font-display text-2xl">Zaineen Clothing</p>
           <p className="eyebrow mt-1">Atelier admin</p>
         </div>
         <nav className="flex-1 p-3 space-y-1">

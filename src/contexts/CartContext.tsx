@@ -24,7 +24,7 @@ type CartContextType = {
 };
 
 const CartContext = createContext<CartContextType | null>(null);
-const STORAGE_KEY = 'noor-cart-v1';
+const STORAGE_KEY = 'zaineen-cart-v1';
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [items, setItems] = useState<CartItem[]>([]);

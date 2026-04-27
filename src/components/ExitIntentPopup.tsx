@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { X, Gift } from 'lucide-react';
 import { toast } from 'sonner';
 
-const KEY = 'noor-exit-shown-v1';
+const KEY = 'zaineen-exit-shown-v1';
 
 export const ExitIntentPopup = () => {
   const [open, setOpen] = useState(false);
@@ -49,8 +49,8 @@ export const ExitIntentPopup = () => {
   if (!open) return null;
 
   const copy = () => {
-    navigator.clipboard.writeText('NOOR10');
-    toast.success('Code copied — NOOR10');
+    navigator.clipboard.writeText('ZAINEEN10');
+    toast.success('Code copied — ZAINEEN10');
   };
 
   return (
@@ -69,7 +69,7 @@ export const ExitIntentPopup = () => {
         <h2 className="font-display text-3xl md:text-4xl mt-3 leading-tight">Take 10% off your<br/>first order.</h2>
         <p className="text-sm text-muted-foreground mt-3 leading-relaxed">A welcome from the atelier. Apply at checkout.</p>
         <div className="mt-6 border border-dashed border-foreground/30 py-4 px-6">
-          <p className="font-display text-2xl tracking-luxe">NOOR10</p>
+          <p className="font-display text-2xl tracking-luxe">ZAINEEN10</p>
         </div>
         <button onClick={copy} className="mt-5 bg-primary text-primary-foreground text-xs uppercase tracking-luxe px-8 py-3 hover:opacity-90 transition-opacity">
           Copy code

@@ -1,4 +1,4 @@
-const KEY = 'noor-recently-viewed-v1';
+const KEY = 'zaineen-recently-viewed-v1';
 const MAX = 8;
 
 export type RecentItem = {
@@ -22,6 +22,6 @@ export const pushRecent = (item: RecentItem) => {
     const list = getRecent().filter((i) => i.id !== item.id);
     list.unshift(item);
     localStorage.setItem(KEY, JSON.stringify(list.slice(0, MAX)));
-    window.dispatchEvent(new Event('noor-recent-updated'));
+    window.dispatchEvent(new Event('zaineen-recent-updated'));
   } catch {}
 };

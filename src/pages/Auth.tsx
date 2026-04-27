@@ -61,7 +61,7 @@ const Auth = () => {
     });
     setBusy(false);
     if (error) toast.error(error.message);
-    else { toast.success('Welcome to Noor & Co.'); nav('/account'); }
+    else { toast.success('Welcome to Zaineen Clothing'); nav('/account'); }
   };
 
   return (

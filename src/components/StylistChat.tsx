@@ -11,7 +11,7 @@ const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/stylist-chat
 const greeting: Msg = {
   role: 'assistant',
   content:
-    "Hello — I'm **Layla**, your stylist at Noor & Co. ✨\n\nTell me about an occasion, a fabric you love, or a silhouette you have in mind, and I'll suggest pieces from our edit.",
+    "Hello — I'm **Layla**, your stylist at Zaineen Clothing ✨\n\nTell me about an occasion, a fabric you love, or a silhouette you have in mind, and I'll suggest pieces from our edit.",
 };
 
 const suggestions = [
