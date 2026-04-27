@@ -7,9 +7,11 @@ import { Product, formatPrice, resolveImage } from '@/lib/shop';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/contexts/CartContext';
 import { useWishlist } from '@/hooks/useWishlist';
-import { Heart, ChevronLeft, Minus, Plus, Truck, RotateCcw, ShieldCheck, Star } from 'lucide-react';
+import { Heart, ChevronLeft, Minus, Plus, Truck, RotateCcw, ShieldCheck, Star, Flame } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { ProductCard } from '@/components/ProductCard';
+import { RecentlyViewed } from '@/components/RecentlyViewed';
+import { pushRecent } from '@/lib/recentlyViewed';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
 
@@ -32,6 +34,18 @@ const ProductDetail = () => {
       .then(({ data }) => {
         const p = data as Product | null;
         setProduct(p);
+        if (p) {
+          // Track view + recently viewed
+          supabase.rpc('increment_product_view', { p_product_id: p.id });
+          supabase.from('product_views').insert({ product_id: p.id });
+          pushRecent({
+            id: p.id,
+            slug: p.slug,
+            name: p.name,
+            image: resolveImage(p.images[0]),
+            price: p.sale_price ?? p.price,
+          });
+        }
         if (p?.category_id) {
           supabase.from('products').select('*').eq('category_id', p.category_id).neq('id', p.id).limit(4)
             .then(({ data: r }) => setRelated((r ?? []) as Product[]));
@@ -119,6 +133,16 @@ const ProductDetail = () => {
             {onSale && <span className="text-xs uppercase tracking-luxe text-accent">Save {Math.round((1 - finalPrice / product.price) * 100)}%</span>}
           </div>
 
+          {product.stock > 0 && product.stock <= 5 && (
+            <div className="flex items-center gap-2 text-accent text-sm">
+              <Flame className="h-4 w-4" />
+              <span className="uppercase tracking-luxe text-xs">Only {product.stock} left in stock</span>
+            </div>
+          )}
+          {product.stock === 0 && (
+            <div className="text-destructive text-xs uppercase tracking-luxe">Sold out</div>
+          )}
+
           <p className="text-muted-foreground leading-relaxed max-w-prose">{product.description}</p>
 
           <div>
@@ -191,6 +215,8 @@ const ProductDetail = () => {
           </div>
         </section>
       )}
+
+      <RecentlyViewed excludeId={product.id} />
 
       <Footer />
     </div>
